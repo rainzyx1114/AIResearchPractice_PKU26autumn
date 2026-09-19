@@ -12,6 +12,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Lambda(lambda x: x.repeat(3, 1, 1)),
+    transforms.Resize((224,224))
 ])
 
 trainset = datasets.MNIST(root='./', train=True, download=True, transform=transform)
